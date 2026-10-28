@@ -1,0 +1,6 @@
+{
+  "name": "ONEORIGIN — 1origin.dev",
+  "description": "Sovereign AI Cloud Platform for Autonomous Agents, Edge Workers Hosting, R2 Object Storage, AI Gateway, Durable Workflows, CI/CD Deployments, and Webhooks.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
