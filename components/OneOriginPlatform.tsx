@@ -320,7 +320,27 @@ export default function OneOriginPlatform({
 
   // Load initial vector search results
   useEffect(() => {
-    handleVectorSearch('gVisor sandbox security container escape');
+    let active = true;
+    fetch('/api/platform', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        action: 'vector_search',
+        query: 'gVisor sandbox security container escape',
+      }),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        if (active && json.results) {
+          setVectorResults(json.results);
+        }
+      })
+      .catch(() => {
+        // ignore transient error
+      });
+    return () => {
+      active = false;
+    };
   }, []);
 
   async function refreshTelemetry() {
